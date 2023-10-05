@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Practice{% endblock title %}
+{% block practiceactive %}active{% endblock practiceactive %}
+{% block body %}
+<style>
+    .concept {
+      display: none;
+    }
+    a{
+      text-decoration: none;
+    }
+  </style>
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="padding: 10px;">Compilers </a>
+      <div class="dropdown" style="padding: 10px;">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select a Compiler
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#" onclick="showConcept('python')">Python</a>
+          <a class="dropdown-item" href="#" onclick="showConcept('html')">Html</a>
+            <a class="dropdown-item" href="#" onclick="showConcept('c')">C</a>
+            <a class="dropdown-item" href="#" onclick="showConcept('cpp')">C++</a>
+            <a class="dropdown-item" href="#" onclick="showConcept('java')">Java</a>
+        </div>
+    </div>
+    </div>
+</nav>
+<div class="concept" id="default_content">
+    <h1 style="text-align: center; justify-content: center;">The c , c++ , java are not available right now.!</h1>
+  </div>
+
+<div class="concept" id="python">
+    <iframe src="https://trinket.io/embed/python/5061dfbd61" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+</div>
+<div class="concept" id="html">
+    <iframe src="https://trinket.io/embed/html/e27b754b56" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</div>
+<div class="concept" id="c">
+  <h1 style="text-align: center; justify-content: center;">The c , c++ , java are not available right now.!</h1>
+</div>
+<div class="concept" id="cpp">
+  <h1 style="text-align: center; justify-content: center;">The c , c++ , java are not available right now.!</h1>
+</div>
+<div class="concept" id="java">
+  <h1 style="text-align: center; justify-content: center;">The c , c++ , java are not available right now.!</h1>
+</div>
+<script>
+    function showConcept(conceptId) {
+      var concepts = document.getElementsByClassName('concept');
+      for (var i = 0; i < concepts.length; i++) {
+        concepts[i].style.display = 'none';
+      }
+  
+      document.getElementById(conceptId).style.display = 'block';
+    }
+    function showDefaultContent() {
+    showConcept('default_content');
+  }
+  
+  
+  window.onload = showDefaultContent;
+  </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock body %}

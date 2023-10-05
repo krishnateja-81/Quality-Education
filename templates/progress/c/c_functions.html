@@ -1,0 +1,213 @@
+{% extends 'progress/base.html' %}
+{% load static %}
+{%block title %}C Tutorial{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'tutorial_style.css' %}">{% endblock css%}
+{% block cactive %}active{% endblock cactive %}
+{% block conceptname %}C Functions{% endblock conceptname %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <p><strong>1. What is a function in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1a" name="q1" value="A">
+            <label class="form-check-label" for="q1a">A) A variable that stores an integer value.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1b" name="q1" value="B">
+            <label class="form-check-label" for="q1b">B) A block of code that performs a specific task.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1c" name="q1" value="C">
+            <label class="form-check-label" for="q1c">C) A reserved keyword in C.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1d" name="q1" value="D">
+            <label class="form-check-label" for="q1d">D) An operator in C.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>2. What is the purpose of a function prototype in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2a" name="q2" value="A">
+            <label class="form-check-label" for="q2a">A) To define the function's behavior.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2b" name="q2" value="B">
+            <label class="form-check-label" for="q2b">B) To declare the function's return type and parameters.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2c" name="q2" value="C">
+            <label class="form-check-label" for="q2c">C) To include the function in the program.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2d" name="q2" value="D">
+            <label class="form-check-label" for="q2d">D) To call the function.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>3. What is a return type in a function declaration?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3a" name="q3" value="A">
+            <label class="form-check-label" for="q3a">A) The name of the function.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3b" name="q3" value="B">
+            <label class="form-check-label" for="q3b">B) The input parameters of the function.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3c" name="q3" value="C">
+            <label class="form-check-label" for="q3c">C) The type of data the function returns to the caller.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3d" name="q3" value="D">
+            <label class="form-check-label" for="q3d">D) The location of the function in memory.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>4. How do you call a function in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4a" name="q4" value="A">
+            <label class="form-check-label" for="q4a">A) By defining it with the 'call' keyword.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4b" name="q4" value="B">
+            <label class="form-check-label" for="q4b">B) By using the 'run' keyword.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4c" name="q4" value="C">
+            <label class="form-check-label" for="q4c">C) By writing its name followed by parentheses and passing arguments if required.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4d" name="q4" value="D">
+            <label class="form-check-label" for="q4d">D) By using the 'execute' keyword.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>5. What is a function definition in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5a" name="q5" value="A">
+            <label class="form-check-label" for="q5a">A) A statement that declares a function.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5b" name="q5" value="B">
+            <label class="form-check-label" for="q5b">B) A set of instructions that define the behavior of a function.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5c" name="q5" value="C">
+            <label class="form-check-label" for="q5c">C) A function's return type.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5d" name="q5" value="D">
+            <label class="form-check-label" for="q5d">D) A pointer that points to the function's memory location.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>6. What is a function prototype in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6a" name="q6" value="A">
+            <label class="form-check-label" for="q6a">A) A sample function for testing purposes.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6b" name="q6" value="B">
+            <label class="form-check-label" for="q6b">B) A function that has no parameters.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6c" name="q6" value="C">
+            <label class="form-check-label" for="q6c">C) A declaration that tells the compiler about a function's name, return type, and parameters.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6d" name="q6" value="D">
+            <label class="form-check-label" for="q6d">D) A function with no return statement.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>7. What is a function definition in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7a" name="q7" value="A">
+            <label class="form-check-label" for="q7a">A) A statement that declares a function.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7b" name="q7" value="B">
+            <label class="form-check-label" for="q7b">B) A set of instructions that define the behavior of a function.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7c" name="q7" value="C">
+            <label class="form-check-label" for="q7c">C) A function's return type.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7d" name="q7" value="D">
+            <label class="form-check-label" for="q7d">D) A pointer that points to the function's memory location.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>8. How do you call a function in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8a" name="q8" value="A">
+            <label class="form-check-label" for="q8a">A) By defining it with the 'call' keyword.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8b" name="q8" value="B">
+            <label class="form-check-label" for="q8b">B) By using the 'run' keyword.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8c" name="q8" value="C">
+            <label class="form-check-label" for="q8c">C) By writing its name followed by parentheses and passing arguments if required.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8d" name="q8" value="D">
+            <label class="form-check-label" for="q8d">D) By using the 'execute' keyword.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>9. What is a return type in a function declaration?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9a" name="q9" value="A">
+            <label class="form-check-label" for="q9a">A) The name of the function.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9b" name="q9" value="B">
+            <label class="form-check-label" for="q9b">B) The input parameters of the function.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9c" name="q9" value="C">
+            <label class="form-check-label" for="q9c">C) The type of data the function returns to the caller.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9d" name="q9" value="D">
+            <label class="form-check-label" for="q9d">D) The location of the function in memory.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>10. How do you define a function in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10a" name="q10" value="A">
+            <label class="form-check-label" for="q10a">A) By using the 'define' keyword.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10b" name="q10" value="B">
+            <label class="form-check-label" for="q10b">B) By writing its name and parameters.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10c" name="q10" value="C">
+            <label class="form-check-label" for="q10c">C) By using the 'function' keyword.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10d" name="q10" value="D">
+            <label class="form-check-label" for="q10d">D) By declaring it as a variable.</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock body %}

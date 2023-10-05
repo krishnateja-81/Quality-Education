@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block title %}Progress{% endblock title %}
+{% block analysisactive %}active{% endblock analysisactive %}
+
+{% block body %}
+<center><h1>C Language </h1>
+<img src="data:image/png;base64,{{ lineplot }}" alt="Line Plot" width="90%" ></center>
+<div class="container">
+    <h1>You need to learn these concepts: <span style="float: right;"><a href="c_material" style="font-size: 20px; text-decoration: none; padding-right: 20px;">What to learn?</a></span></h1>
+    <ul>
+    {% for i in need_to_learn %}
+        <li style="font-weight: bold;">{{ i }}</li>
+    {% endfor %}
+    </ul>
+
+</div>
+{% endblock body %}

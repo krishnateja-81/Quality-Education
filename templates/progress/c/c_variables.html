@@ -1,0 +1,214 @@
+{% extends 'progress/base.html' %}
+{% load static %}
+{%block title %}C Tutorial{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'tutorial_style.css' %}">{% endblock css%}
+{% block cactive %}active{% endblock cactive %}
+{% block conceptname %}C Variables{% endblock conceptname %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <p><strong>1. What is a variable in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1a" name="q1" value="A">
+            <label class="form-check-label" for="q1a">A) A storage location to hold data</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1b" name="q1" value="B">
+            <label class="form-check-label" for="q1b">B) A data type</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1c" name="q1" value="C">
+            <label class="form-check-label" for="q1c">C) A function</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1d" name="q1" value="D">
+            <label class="form-check-label" for="q1d">D) A reserved keyword</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>2. Which of the following is a valid variable name in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2a" name="q2" value="A">
+            <label class="form-check-label" for="q2a">A) 123variable</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2b" name="q2" value="B">
+            <label class="form-check-label" for="q2b">B) _myVariable</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2c" name="q2" value="C">
+            <label class="form-check-label" for="q2c">C) break</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2d" name="q2" value="D">
+            <label class="form-check-label" for="q2d">D) main()</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>3. What is the purpose of declaring a variable in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3a" name="q3" value="A">
+            <label class="form-check-label" for="q3a">A) To allocate memory for it</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3b" name="q3" value="B">
+            <label class="form-check-label" for="q3b">B) To assign a value to it</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3c" name="q3" value="C">
+            <label class="form-check-label" for="q3c">C) To define its data type</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3d" name="q3" value="D">
+            <label class="form-check-label" for="q3d">D) To perform calculations with it</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>4. Which data type is used to store whole numbers in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4a" name="q4" value="A">
+            <label class="form-check-label" for="q4a">A) float</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4b" name="q4" value="B">
+            <label class="form-check-label" for="q4b">B) double</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4c" name="q4" value="C">
+            <label class="form-check-label" for="q4c">C) int</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4d" name="q4" value="D">
+            <label class="form-check-label" for="q4d">D) char</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>5. What is the value of an uninitialized variable in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5a" name="q5" value="A">
+            <label class="form-check-label" for="q5a">A) 0</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5b" name="q5" value="B">
+            <label class="form-check-label" for="q5b">B) -1</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5c" name="q5" value="C">
+            <label class="form-check-label" for="q5c">C) Undefined (garbage value)</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5d" name="q5" value="D">
+            <label class="form-check-label" for="q5d">D) None of the above</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>6. In C, which keyword is used to declare a constant variable?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6a" name="q6" value="A">
+            <label class="form-check-label" for="q6a">A) var</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6b" name="q6" value="B">
+            <label class="form-check-label" for="q6b">B) const</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6c" name="q6" value="C">
+            <label class="form-check-label" for="q6c">C) constant</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6d" name="q6" value="D">
+            <label class="form-check-label" for="q6d">D) readonly</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>7. What is the scope of a global variable in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7a" name="q7" value="A">
+            <label class="form-check-label" for="q7a">A) It can only be accessed within the function where it is declared.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7b" name="q7" value="B">
+            <label class="form-check-label" for="q7b">B) It can be accessed from any function in the program.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7c" name="q7" value="C">
+            <label class="form-check-label" for="q7c">C) It can be accessed only within the same source file.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7d" name="q7" value="D">
+            <label class="form-check-label" for="q7d">D) It has no scope; global variables are not allowed in C.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>8. What is the lifetime of a local variable in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8a" name="q8" value="A">
+            <label class="form-check-label" for="q8a">A) It exists throughout the program's execution.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8b" name="q8" value="B">
+            <label class="form-check-label" for="q8b">B) It exists only while the function in which it is declared is running.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8c" name="q8" value="C">
+            <label class="form-check-label" for="q8c">C) It exists until the program is terminated.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8d" name="q8" value="D">
+            <label class="form-check-label" for="q8d">D) It exists as long as the program is running.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>9. Which of the following is not a valid data type in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9a" name="q9" value="A">
+            <label class="form-check-label" for="q9a">A) long long</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9b" name="q9" value="B">
+            <label class="form-check-label" for="q9b">B) float double</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9c" name="q9" value="C">
+            <label class="form-check-label" for="q9c">C) unsigned char</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9d" name="q9" value="D">
+            <label class="form-check-label" for="q9d">D) short int</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>10. How do you declare a character variable in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10a" name="q10" value="A">
+            <label class="form-check-label" for="q10a">A) char myChar = 'A';</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10b" name="q10" value="B">
+            <label class="form-check-label" for="q10b">B) character myChar = 'A';</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10c" name="q10" value="C">
+            <label class="form-check-label" for="q10c">C) string myChar = 'A';</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10d" name="q10" value="D">
+            <label class="form-check-label" for="q10d">D) var myChar = 'A';</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock body %}

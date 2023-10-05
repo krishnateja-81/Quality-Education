@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Jobs{% endblock title %}
+{% block jobsactive %}active{% endblock jobsactive %}
+{% block body %}
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">Jobs </a>
+      <form class="d-flex" role="search" method="post">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="job" id="job">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+</nav>
+<div class="container mt-4">
+  <center><h1>{{ err }}</h1></center>
+  <h1 class="mb-4">Job Search Results</h1>
+  <div class="clearfix"></div>
+  <button class="btn btn-primary ml-auto" id="refresh-button">Next</button>
+  <table class="table table-bordered">
+      <thead class="thead-dark">
+          <tr>
+              <th>Company Name</th>
+              <th>Job Title</th>
+              <th>Salary</th>
+              <th>Location</th>
+              <th>Status</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for row in job_data %}
+              <tr>
+                  <td>{{ row.0 }}</td>
+                  <td>{{ row.1 }}</td>
+                  <td>{{ row.2 }}</td>
+                  <td>{{ row.3 }}</td>
+                  <td>{{ row.4 }}</td>
+              </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>
+<script>
+  document.getElementById('refresh-button').addEventListener('click', function() {
+    location.reload();
+});
+</script>
+{% endblock body %}

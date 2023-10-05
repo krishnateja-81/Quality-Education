@@ -1,0 +1,357 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courses</title>
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+    <style>
+        body, h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header styles */
+        header {
+            font-size: larger;
+            font-weight: bold;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .nav-links ul {
+            list-style: none;
+        }
+
+        .nav-links a:hover {
+            color: #ff6f61;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-button {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .toggle-bar {
+            background-color: #fff;
+            height: 3px;
+            width: 25px;
+            margin: 3px 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        /* Hero section styles */
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #777;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #333;
+        }
+
+        /* Featured Courses styles */
+        .featured-courses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+
+        .course {
+            flex: 1;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .course:hover {
+            transform: translateY(-5px);
+        }
+
+        .course img {
+            max-width: 20%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .course h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .course p {
+            font-size: 1rem;
+            color: #777;
+            margin: 10px 0;
+        }
+
+        .course a {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #ff6f61;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .course a:hover {
+            background-color: #333;
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 1200px;
+                padding: 10px auto;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .featured-courses {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .course {
+                flex: none;
+                width: 90%;
+            }
+
+            /* Show mobile menu button and hide navigation links by default */
+            .mobile-menu-button {
+                display: flex;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: #333; /* Background color for the mobile menu */
+                position: absolute;
+                top: 50px; /* Adjust as needed to position the menu below the header */
+                left: 0;
+                width: 100%;
+                z-index: 1;
+            }
+
+            /* Show/hide mobile menu on button click */
+            #mobile-menu-toggle {
+                display: block;
+                background-color: #333;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+            }
+
+            #mobile-menu-toggle:focus + .mobile-menu {
+                display: flex;
+            }
+
+            #mobile-menu-toggle:focus {
+                outline: none;
+            }
+
+            /* Add this CSS for mobile menu */
+            .mobile-menu {
+                list-style: none;
+                display: none;
+                background-color: #333; /* Background color for the mobile menu */
+                position: absolute;
+                top: 50px; /* Adjust as needed to position the menu below the header */
+                left: 0;
+                width: 100%;
+                z-index: 1;
+                padding: 10px 0;
+            }
+
+            .mobile-menu li {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .mobile-menu a {
+                text-decoration: none;
+                color: #fff;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+
+            .mobile-menu a:hover {
+                color: #ff6f61;
+            }
+
+            .mobile-menu-active {
+                display: flex;
+            }
+
+            /* Rest of your CSS (unchanged) */
+
+
+
+            .mobile-menu-active nav ul {
+                display: flex;
+            }
+
+            .mobile-menu-active .toggle-bar:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .mobile-menu-active .toggle-bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-active .toggle-bar:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo" style="padding-left: 5px;"><a href="home" style="text-decoration: none; color: white;">Quality education</a></div>
+            <!-- Mobile Menu Button -->
+            <div class="mobile-menu-button">
+                <!-- Mobile Menu -->
+                <ul class="mobile-menu">
+                    <li><a href="home">Home</a></li>
+                    <li><a href="explorecourses">Courses</a></li>
+                </ul>
+                <button id="mobile-menu-toggle">Menu</button>
+            </div>
+            <!-- Desktop Menu -->
+            <ul class="nav-links">
+                <li><a href="home">Home</a></li>
+                <li><a href="explorecourses">Courses</a></li>
+            </ul>
+        </nav>
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>COURSES</h1>
+        <p>Learn Anything, Anytime, Anywhere</p>
+        <a href="explorecourses" class="btn">Explore Courses</a>
+    </section>
+
+    <!-- Featured Courses Section -->
+    <section class="featured-courses">
+        <h2>Featured Courses</h2>
+        <div class="course">
+            <img src="{% static 'mentor/course1.jpg' %}" alt="Course 1">
+            <h3>C LANGUAGE</h3>
+            <!-- <p>Description of Course 1.</p> -->
+            <a href="explorecourses">Enroll Now</a>
+        </div>
+        <div class="course">
+            <img src="{% static 'mentor/course2.jpg' %}" alt="Course 2">
+            <h3>JAVA</h3>
+            <!-- <p>Description of Course 2.</p> -->
+            <a href="explorecourses">Enroll Now</a>
+        </div>
+        <!-- Add more courses here -->
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2023 Udemy Clone</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuButton = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        mobileMenuButton.addEventListener('click', function () {
+            mobileMenu.classList.toggle('mobile-menu-active');
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,205 @@
+{% extends 'progress/base.html' %}
+{% load static %}
+{%block title %}C Tutorial{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'tutorial_style.css' %}">{% endblock css%}
+{% block cactive %}active{% endblock cactive %}
+{% block conceptname %}C Structures{% endblock conceptname %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <p><strong>1. What is a structure in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1a" name="q1" value="A">
+            <label class="form-check-label" for="q1a">A) A data type that can store multiple values of different data types.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1b" name="q1" value="B">
+            <label class="form-check-label" for="q1b">B) A function that returns a value.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1c" name="q1" value="C">
+            <label class="form-check-label" for="q1c">C) A loop construct in C.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1d" name="q1" value="D">
+            <label class="form-check-label" for="q1d">D) A reserved keyword in C.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>2. How do you declare a structure in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2a" name="q2" value="A">
+            <label class="form-check-label" for="q2a">A) Using the 'class' keyword.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2b" name="q2" value="B">
+            <label class="form-check-label" for="q2b">B) Using the 'structure' keyword.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2c" name="q2" value="C">
+            <label class="form-check-label" for="q2c">C) Using the 'typedef' keyword.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2d" name="q2" value="D">
+            <label class="form-check-label" for="q2d">D) Using the 'struct' keyword.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>3. How do you access members of a structure in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3a" name="q3" value="A">
+            <label class="form-check-label" for="q3a">A) Using the '->' operator.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3b" name="q3" value="B">
+            <label class="form-check-label" for="q3b">B) Using the '.' operator.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3c" name="q3" value="C">
+            <label class="form-check-label" for="q3c">C) Using the '[]' operator.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3d" name="q3" value="D">
+            <label class="form-check-label" for="q3d">D) Using the '()' operator.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>4. What is the size of a structure in memory?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4a" name="q4" value="A">
+            <label class="form-check-label" for="q4a">A) It varies depending on the data types of its members.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4b" name="q4" value="B">
+            <label class="form-check-label" for="q4b">B) Always 4 bytes.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4c" name="q4" value="C">
+            <label class="form-check-label" for="q4c">C) Always 8 bytes.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4d" name="q4" value="D">
+            <label class="form-check-label" for="q4d">D) Always 1 byte.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>5. How do you initialize a structure in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5a" name="q5" value="A">
+            <label class="form-check-label" for="q5a">A) Using the 'new' keyword.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5b" name="q5" value="B">
+            <label class="form-check-label" for="q5b">B) Using the 'initialize' keyword.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5c" name="q5" value="C">
+            <label class="form-check-label" for="q5c">C) Using the 'struct' keyword.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5d" name="q5" value="D">
+            <label class="form-check-label" for="q5d">D) By assigning values to its members.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>6. What does the 'sizeof' operator return in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6a" name="q6" value="A">
+            <label class="form-check-label" for="q6a">A) The value of a variable.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6b" name="q6" value="B">
+            <label class="form-check-label" for="q6b">B) The memory address of a variable.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6c" name="q6" value="C">
+            <label class="form-check-label" for="q6c">C) The size of a data type or variable.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6d" name="q6" value="D">
+            <label class="form-check-label" for="q6d">D) The maximum value of a variable.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>7. What is the purpose of a nested structure in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7a" name="q7" value="A">
+            <label class="form-check-label" for="q7a">A) To confuse the programmer.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7b" name="q7" value="B">
+            <label class="form-check-label" for="q7b">B) To store data in a single structure.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7c" name="q7" value="C">
+            <label class="form-check-label" for="q7c">C) To create a structure inside another structure.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7d" name="q7" value="D">
+            <label class="form-check-label" for="q7d">D) To define a new data type.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>8. Which operator is used to access structure members in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8a" name="q8" value="A">
+            <label class="form-check-label" for="q8a">A) '.' (Dot) operator.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8b" name="q8" value="B">
+            <label class="form-check-label" for="q8b">B) '->' (Arrow) operator.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8c" name="q8" value="C">
+            <label class="form-check-label" for="q8c">C) '[]' (Bracket) operator.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8d" name="q8" value="D">
+            <label class="form-check-label" for="q8d">D) '+' (Plus) operator.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>9. Can a structure contain a member of the same structure type?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9a" name="q9" value="A">
+            <label class="form-check-label" for="q9a">A) Yes</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9b" name="q9" value="B">
+            <label class="form-check-label" for="q9b">B) No</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>10. What is the purpose of the 'typedef' keyword in C structures?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10a" name="q10" value="A">
+            <label class="form-check-label" for="q10a">A) To define a new data type name for an existing data type.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10b" name="q10" value="B">
+            <label class="form-check-label" for="q10b">B) To create a new structure.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10c" name="q10" value="C">
+            <label class="form-check-label" for="q10c">C) To declare a variable.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10d" name="q10" value="D">
+            <label class="form-check-label" for="q10d">D) To access structure members.</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock body %}

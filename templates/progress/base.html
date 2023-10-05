@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>{% block title %}{% endblock title%}</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+{% block css %}{% endblock css %}
+<style>
+    .nav-item{
+        padding-left: 10px;
+    }
+    body {
+            background-color: #f2f2f2;
+    }
+
+  a{
+    text-decoration: none;
+  }
+  .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    #refresh-button {
+            font-size: 20px;
+            color: #007bff; 
+            transition: color 0.3s; 
+        }
+
+        #refresh-button:hover {
+            color: #0056b3; 
+        }
+</style>
+</head>
+<body>	 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding: 10px; font-weight: bolder ;">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="home">Quality education</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 " >
+                  <li class="nav-item" >
+                      <a class="nav-link {% block homeactive %}{% endblock homeactive %}" aria-current="page" href="home">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% block cactive %}{% endblock cactive %}" aria-current="page" href="c_progress">C</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% block cppactive %}{% endblock cppactive %}" aria-current="page" href="cpp_progress">C++</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% block pythonactive %}{% endblock pythonactive %}" aria-current="page" href="python_progress">Python</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% block javaactive %}{% endblock javaactive %}" aria-current="page" href="java_progress">Java</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% block htmlactive %}{% endblock htmlactive %}" aria-current="page" href="html_progress">Html</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% block jsactive %}{% endblock jsactive %}" aria-current="page" href="#">Java Script</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+<main class="row">
+  <div id="side-menu" class="d-none d-md-block col-3 col-lg-2" style="overflow: hidden;">
+    <h2 style="padding-top: 20px;">C Progress</h2><br>
+      <a class="row" href="c_basics" >C Basics</a>
+      <a class="row" href="c_printf_scanf" >C printf and scanf</a>
+      <a class="row" href="c_variables" >Variables</a>
+      <a class="row" href="c_datatypes" >Data Types</a>
+      <a class="row" href="c_typeConversion" >Type Conversion</a>
+      <a class="row" href="c_operators" >Operators</a>
+      <a class="row" href="c_conditional_statements">Conditional Statements</a>
+      <a class="row" href="c_loops"> Loops </a>
+      <a class="row" href="c_break_continue" >Break Continue</a>
+      <a class="row" href="c_strings"> Strings</a>
+      <a class="row" href="c_arrays" >Arrays</a>
+      <a class="row" href="c_pointers" >Pointers</a>
+      <a class="row" href="c_functions" >Functtions</a>
+      <a class="row" href="c_files" >Files</a>
+      <a class="row" href="c_structures" >Structures</a>
+
+  </div>
+  <div class="col-12 col-md-9 col-lg-10">
+    <div class="container">
+        <h1 class="text-center">{% block conceptname %}{% endblock conceptname %}</h1>
+        <span style="float: right;"><a href="">Need your progress</a></span>
+        <h3 style="font-weight: bolder;">max score : {{ maxscore }} <span id="refresh-button" style="cursor: pointer;">&#8635;</span></h3>
+        {% block body %}{% endblock body %}
+</div>
+<script>
+    document.getElementById('refresh-button').addEventListener('click', function() {
+      location.reload();
+  });
+  </script>
+</div>
+</main>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+
+</body>
+	
+</html>

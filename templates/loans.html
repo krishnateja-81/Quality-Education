@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Loans{% endblock title %}
+{% block loansactive %}active{% endblock loansactive %}
+{% block body %}
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    /* h1, h2, h3, h4, h5, h6 {
+        color: #007bff;
+    } */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+    ol {
+        list-style-type: decimal;
+        padding-left: 20px;
+    }
+</style>
+  <div class="container" style="width: 100%; height: 100%;">
+    <h1 class="mt-5 text-center" style="padding: 10px 10px;">Education Loan Information</h1>
+    <p>Quality education is of prime importance to any individual, and students go the extra mile to achieve that. However, the cost of education is on the rise lately, and opting for an education loan seems to be the single best solution.</p>
+    <center><img src="{% static 'jobs/collateral_loan.png' %}" alt="image" style="width: 80%;"></center>
+    <h2 style="padding: 10px 10px;">Types of Education Loans</h2>
+    <center><img src="{% static 'jobs/types_of_loans.png' %}" alt="Types of loans" style="width: 80%; "></center>
+
+    <h3 style="padding: 10px;">Based on Location:</h3>
+
+    <ul>
+      <li>
+        <h4>Domestic Education Loan</h4>
+        <p>Students who would like to pursue education in India can apply for this loan type. The loan will get approved only if the applicant is admitted to an Indian educational institution and meets all other lender criteria.</p>
+      </li>
+      <li>
+        <h4>Overseas Education Loan</h4>
+        <p>Such loans help students realize their dream of pursuing the course of their desire in a foreign institution. The loan covers the airfare, accommodation, and tuition fee for students who wish to study abroad only if they satisfy the eligibility criteria.</p>
+      </li>
+    </ul>
+
+    <h3 style="padding: 10px;">Based on Course:</h3>
+
+    <ul>
+      <li>
+        <h4>Undergraduate Loans</h4>
+        <p>This type of education loan is provided for students to give financial aid to students so they can complete their undergraduate degrees. An undergraduate degree will usually be a 3 to 4-year long course under various specializations. Having an undergraduate degree helps individuals to land a decent job and start earning.</p>
+      </li>
+      <li>
+        <h4>Postgraduate Loans</h4>
+        <p>Many undergraduates would like to continue their education with a postgraduate course, usually a 2-year long course in India. An advanced degree is desired to get more profound knowledge in the area of interest.</p>
+      </li>
+      <li>
+        <h4>Career Development Loans</h4>
+        <p>Many professionals who work for a few years in corporate jobs prefer to pause their career and take up professional courses and training to improve their employment prospects. Such individuals would strive hard to get into reputed business and technical schools to polish their skills and reach greater heights in their career.</p>
+      </li>
+    </ul>
+
+    <h3 style="padding: 10px;">Based on Collateral:</h3>
+
+    <ul>
+      <li>
+        <h4>Loan Against Property, Deposits, and Securities</h4>
+        <p>You can pledge immovable assets, such as agricultural land, residential land, flat, house, and others, fixed deposit certificates, recurring deposits, gold deposits, bonds, debentures, and equity shares to get the necessary financing to pursue education.</p>
+      </li>
+      <li>
+        <h4>Third-Party Guarantee</h4>
+        <p>A guarantee letter from an employee of the bank or a home bank can help the student get an education loan.</p>
+      </li>
+    </ul>
+    <div class="container mt-4">
+        <h1 class="text-center">Education Loan Interest Rates</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Bank Name</th>
+                    <th>Interest Rate (% p.a.)*</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bank of Baroda</td>
+                    <td>9.15% onwards</td>
+                </tr>
+                <tr>
+                    <td>Punjab National Bank</td>
+                    <td>9.25% onwards</td>
+                </tr>
+                <tr>
+                    <td>Canara Bank</td>
+                    <td>9.25% onwards</td>
+                </tr>
+                <tr>
+                    <td>Union Bank of India</td>
+                    <td>11.30% onwards</td>
+                </tr>
+                <tr>
+                    <td>State Bank of India</td>
+                    <td>8.55% onwards</td>
+                </tr>
+                <tr>
+                    <td>Central Bank of India</td>
+                    <td>8.55% onwards</td>
+                </tr>
+                <tr>
+                    <td>IDBI Bank</td>
+                    <td>9.01% onwards</td>
+                </tr>
+                <tr>
+                    <td>Indian Overseas Bank</td>
+                    <td>11.05% onwards</td>
+                </tr>
+                <tr>
+                    <td>HDFC Bank</td>
+                    <td>Preferential rates as per the college or the university</td>
+                </tr>
+                <tr>
+                    <td>Axis Bank</td>
+                    <td>13.70% onwards</td>
+                </tr>
+                <tr>
+                    <td>Federal Bank</td>
+                    <td>12.55% onwards</td>
+                </tr>
+                <tr>
+                    <td>ICICI Bank</td>
+                    <td>9.95% onwards</td>
+                </tr>
+                <tr>
+                    <td>Kotak Mahindra Bank</td>
+                    <td>Up to 16%</td>
+                </tr>
+                <tr>
+                    <td>Karnataka Bank</td>
+                    <td>10.44% onwards</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <h2 style="padding: 10px;">Features and Benefits</h2>
+    <ul>
+        <li>The loan amount can go up to Rs.1 crore for international students and up to Rs.50 lakh for domestic students.</li>
+        <li>100% financing available for certain conditions.</li>
+        <li>The financing covers other expenses, such as student exchange travel expenses and laptop.</li>
+        <li>Preferential forex rates may be available for international disbursements.</li>
+        <li>Parents should be joint borrowers for the education loan.</li>
+        <li>Loan repayment tenure can go up to 15 years.</li>
+        <li>Loan moratorium period of up to 6-months to 1 year from completing the course.</li>
+        <li>Tax benefits up to 8 years on the loan interest payment.</li>
+    </ul>
+
+    <!-- List of Expenses Covered Section -->
+    <h2 style="padding: 10px;">List of Expenses Covered under Education Loan</h2>
+    <center><img src="{% static 'jobs/Expenses-Coverage-in-Education-Loan.png' %}" alt="Expenses-Coverage-in-Education-Loan" style="width: 80%;"></center>
+    <ul>
+        <li>Fees payable to educational institutes.</li>
+        <li>Examination/library/laboratory fee.</li>
+        <li>Travel expenses/passage money for studies abroad.</li>
+        <li>Insurance premium for student borrowers, if applicable.</li>
+        <li>Caution deposit, building fund/refundable deposit supported by institution bills/receipts (total expense should not exceed 10% of total loan).</li>
+        <li>Purchase of books/equipment/instruments/uniforms (total expense should not exceed 20% of total loan).</li>
+        <li>Purchase of computer at a reasonable cost, if required to complete the course (total expense should not exceed 20% of total loan).</li>
+        <li>Any other expense required to complete the course, such as study tours, project work, thesis, etc. (total expense should not exceed 20% of total loan).</li>
+        <li>While computing loan required, scholarships, fee waiver, etc., if any available to the student borrower.</li>
+    </ul>
+
+    <!-- List of Courses Covered Section -->
+    <h2 style="padding: 10px;">List of Courses Covered under an Educational Loan</h2>
+    <ul>
+        <li>Graduation and post-graduation courses (professional/technical/diploma) conducted by approved universities or colleges under UGC, IMC, AICTE, government, AICTE, AIBMS or CMR.</li>
+        <li>Regular degree or diploma courses administered by autonomous institutions such as IIM, IIT, IISc, XLRI, NIFT, NID, ICWA, CA, CFA, etc.</li>
+        <li>Regular degree or diploma courses such as pilot training, aeronautical, shipping, and more approved by the Director General of Civil Aviation, Shipping, other regulatory authority.</li>
+        <li>Job-oriented courses (professional/technical) for graduation, post-graduation or diploma such as MBA/MCA/MS, courses conducted by the Chartered Institute of Management Accountants (CIMA) - London or Certified Public Accountant (CPA) - USA.</li>
+        <li>Loans for skill development.</li>
+    </ul>
+
+    <!-- Education Loan Eligibility Section -->
+    <h2 style="padding: 10px;">Education Loan Eligibility</h2>
+    <ul>
+        <li>Loans are granted to approved undergraduate programs, postgraduate programs, PhDs, diploma courses of six months or longer duration, job-oriented courses and technical/professional courses.</li>
+        <li>Applicants should be studying or obtaining admissions in approved recognized institutions, government institutions, professional institutions and international colleges and universities.</li>
+        <li>Applicants should have completed 10+2 (12th standard) for an undergraduate course and a degree for a postgraduate course.</li>
+    </ul>
+
+
+    <h2 style="padding: 10px;">Documents Required</h2>
+    <ul>
+        <li>KYC documents</li>
+        <li>Mark sheets of 10th, 12th, graduation and entrance exams</li>
+        <li>Admission letter</li>
+        <li>Fee structure</li>
+        <li>Co-applicant KYC and income proof in some cases</li>
+        <li>Additional documents may be requested in some cases.</li>
+    </ul>
+
+
+    <h2 style="padding: 10px;">Tax Benefits on Education Loan</h2>
+    <center><img src="{% static 'jobs/tax-benefits.png' %}" alt="tax-benefits" style="height: 50%; width: 80%;"></center>
+    <p style="padding: 10px;">When you start repaying the education loan, the interest segment you pay towards the loan every month can be used to claim income tax deduction under Section 80E. However, the deduction cannot be claimed on the principal repayments.</p>
+    <p>Also, there is no limit on the amount you can claim for interest repayment on an education loan. As proof of this, you need to obtain a certificate from the bank. The facility is available only for eight years from the year you start repaying the loan or until the interest is fully repaid, whichever comes first.</p>
+
+
+    <h2 style="padding: 10px;">Education Loan EMI Calculator</h2>
+    <p>The education loan EMI calculator is a smart tool that calculates your monthly EMI amount payable to the lender. It’s a slider where you enter the values, Principal amount (P), Time duration (N), and Rate of interest (R), to find out your EMI and figure out your finances in advance.</p>
+
+
+    <h2 style="padding: 10px;">How to Apply</h2>
+    <p>You can either go to the bank of your choice and enquire about the loan process, or you can apply online.</p>
+    <ol>
+        <li>Visit the bank of your choice and choose an educational loan scheme.</li>
+        <li>Download the application form from the bank website or click on the ‘Apply Now’ button.</li>
+        <li>Fill the application form, attach the necessary documents, and submit the form.</li>
+        <li>The bank will initiate the process by verifying your documents, evaluating the course of study for which you wish to take the loan, and collateral you can provide.</li>
+        <li>Once the loan is approved, the bank will release the loan amount.</li>
+    </ol>
+
+    <h2 style="padding: 10px;">Study Loan Repayment System</h2>
+    <p>Some lenders provide a 6-month to 1-year grace period after completing the course to land a suitable job and start the repayment process. This grace period may vary with the lender. Once you land a job within this period, you may start the repayment process in the form of EMIs.</p>
+    <p>You can get in touch with the bank officials, and based on your monthly income, the bank officials will suggest a certain EMI. If you agree with this suggestion, you can start making the monthly repayments. Otherwise, you may negotiate with the amount. In any case, the maximum repayment tenure allowed is eight years in general.</p>
+</div>
+{% endblock body %}

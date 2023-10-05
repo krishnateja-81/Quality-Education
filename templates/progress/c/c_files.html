@@ -1,0 +1,213 @@
+{% extends 'progress/base.html' %}
+{% load static %}
+{%block title %}C Tutorial{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'tutorial_style.css' %}">{% endblock css%}
+{% block cactive %}active{% endblock cactive %}
+{% block conceptname %}C Files{% endblock conceptname %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <p><strong>1. What is the purpose of file handling in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1a" name="q1" value="A">
+            <label class="form-check-label" for="q1a">A) To create graphical user interfaces.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1b" name="q1" value="B">
+            <label class="form-check-label" for="q1b">B) To manage and manipulate data stored in files.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1c" name="q1" value="C">
+            <label class="form-check-label" for="q1c">C) To perform mathematical calculations.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1d" name="q1" value="D">
+            <label class="form-check-label" for="q1d">D) To define functions in C.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>2. Which library is used for file operations in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2a" name="q2" value="A">
+            <label class="form-check-label" for="q2a">A) stdlib.h</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2b" name="q2" value="B">
+            <label class="form-check-label" for="q2b">B) math.h</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2c" name="q2" value="C">
+            <label class="form-check-label" for="q2c">C) fileio.h</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2d" name="q2" value="D">
+            <label class="form-check-label" for="q2d">D) stdio.h</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>3. Which function is used to open a file in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3a" name="q3" value="A">
+            <label class="form-check-label" for="q3a">A) fopen()</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3b" name="q3" value="B">
+            <label class="form-check-label" for="q3b">B) fread()</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3c" name="q3" value="C">
+            <label class="form-check-label" for="q3c">C) fclose()</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3d" name="q3" value="D">
+            <label class="form-check-label" for="q3d">D) open()</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>4. How do you close a file in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4a" name="q4" value="A">
+            <label class="form-check-label" for="q4a">A) fclose()</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4b" name="q4" value="B">
+            <label class="form-check-label" for="q4b">B) close()</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4c" name="q4" value="C">
+            <label class="form-check-label" for="q4c">C) file_close()</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4d" name="q4" value="D">
+            <label class="form-check-label" for="q4d">D) fclosefile()</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>5. What is the purpose of the 'fread' function in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5a" name="q5" value="A">
+            <label class="form-check-label" for="q5a">A) To write data to a file.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5b" name="q5" value="B">
+            <label class="form-check-label" for="q5b">B) To read data from a file.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5c" name="q5" value="C">
+            <label class="form-check-label" for="q5c">C) To create a new file.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5d" name="q5" value="D">
+            <label class="form-check-label" for="q5d">D) To delete a file.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>6. What does 'EOF' stand for in file handling?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6a" name="q6" value="A">
+            <label class="form-check-label" for="q6a">A) End of Function</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6b" name="q6" value="B">
+            <label class="form-check-label" for="q6b">B) End of File</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6c" name="q6" value="C">
+            <label class="form-check-label" for="q6c">C) End of Loop</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6d" name="q6" value="D">
+            <label class="form-check-label" for="q6d">D) End of Code</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>7. Which function is used to write data to a file in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7a" name="q7" value="A">
+            <label class="form-check-label" for="q7a">A) file_write()</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7b" name="q7" value="B">
+            <label class="form-check-label" for="q7b">B) fwrite()</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7c" name="q7" value="C">
+            <label class="form-check-label" for="q7c">C) file_append()</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7d" name="q7" value="D">
+            <label class="form-check-label" for="q7d">D) append_file()</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>8. What is the purpose of the 'fprintf' function in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8a" name="q8" value="A">
+            <label class="form-check-label" for="q8a">A) To read data from a file.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8b" name="q8" value="B">
+            <label class="form-check-label" for="q8b">B) To write formatted data to a file.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8c" name="q8" value="C">
+            <label class="form-check-label" for="q8c">C) To delete a file.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8d" name="q8" value="D">
+            <label class="form-check-label" for="q8d">D) To close a file.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>9. What is the purpose of the 'fseek' function in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9a" name="q9" value="A">
+            <label class="form-check-label" for="q9a">A) To read data from a specific file location.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9b" name="q9" value="B">
+            <label class="form-check-label" for="q9b">B) To write data to a file.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9c" name="q9" value="C">
+            <label class="form-check-label" for="q9c">C) To move the file pointer to a specific position in a file.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9d" name="q9" value="D">
+            <label class="form-check-label" for="q9d">D) To close a file.</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>10. What is the purpose of the 'feof' function in C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10a" name="q10" value="A">
+            <label class="form-check-label" for="q10a">A) To check if a file exists.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10b" name="q10" value="B">
+            <label class="form-check-label" for="q10b">B) To check if a file is empty.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10c" name="q10" value="C">
+            <label class="form-check-label" for="q10c">C) To check if the end-of-file has been reached.</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10d" name="q10" value="D">
+            <label class="form-check-label" for="q10d">D) To check if a file is open.</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock body %}

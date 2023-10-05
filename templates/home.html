@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+<style>
+body, img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+.lr:hover{
+    color: aliceblue;
+}
+.lrr:hover{
+    background-color: transparent;
+}
+
+.header-background {
+    background-image: url("{% static 'home/books.jpg' %}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 200px 0;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#introduction p {
+    text-align: center;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.image-container img {
+    max-width: 40%;
+    height: auto;
+}
+
+.section-with-images ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section-with-images li {
+    margin-bottom: 40px;
+}
+
+.section-border-images {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-border-images img {
+    max-width: 48%;
+    height: auto;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+</style>
+<header>
+    {% if user.is_authenticated %}
+    <a href="logout" style="text-decoration: none; float: right; padding-right:40px ; font-size: larger; padding-top: 20px; color: white; " class="lr"><span style="background-color: rgb(156, 119, 64); padding: 5px; " class="lrr">logout</span></a>
+    {% else %}
+    <a href="login" style="text-decoration: none; float: right; padding-right:40px ; font-size: larger; padding-top: 20px; color: white; " class="lr"><span style="background-color: rgb(156, 119, 64); padding: 5px; " class="lrr">Login</span></a>
+    <a href="register" style="text-decoration: none; float: right; padding-right:20px ; font-size: larger; padding-top: 20px; color: white;" class="lr"><span style="background-color: rgb(156, 119, 64); padding: 5px;"  class="lrr">Register</span></a>
+    {% endif %}
+    
+    <div class="header-background">
+        <div class="container">
+            <h1>Quality Education</h1>
+        </div>
+    </div>
+</header>
+
+<section id="introduction">
+    <div class="container">
+        <p>
+            Education is a fundamental right, and every child deserves access to quality education. However, rural areas often face unique challenges in providing quality learning experiences. Our program aims to bridge this gap and improve education in rural communities.
+        </p>
+        <div class="image-container">
+            <img src="{% static 'home/Edu 1.png' %}" alt="Education Image 1">
+            <img src="{% static 'home/Edu 2.png' %}" alt="Education Image 2">
+        </div>
+    </div>
+</section>
+
+<section id="components" class="section-with-images">
+    <div class="container">
+        <h2>Key Components</h2>
+        <ul>
+            <li>
+                <h3>Infrastructure Improvement</h3>
+                <p>We focus on building safe and modern school facilities with access to essential amenities.</p>
+            </li>
+            <div class="image-container">
+                <img src="{% static 'home/Infrastructure  0.png' %}" alt="Infrastructure Image 0">
+                <img src="{% static 'home/Infrastructure  1.png' %}" alt="Infrastructure Image 1">
+            </div>
+            <li>
+                <h3>Teacher Training</h3>
+                <p>We provide specialized training for teachers to enhance their teaching skills and adapt to rural environments.</p>
+            </li>
+            <div class="image-container">
+                <img src="{% static 'home/Teacher Training.png' %}" alt="Teacher Training Image">
+                <img src="{% static 'home/Teacher Training1.png' %}" alt="Teacher Training Image 1">
+            </div>
+            <li>
+                <h3>Digital Learning Resources</h3>
+                <p>We leverage technology to deliver educational content and resources, ensuring access to up-to-date materials.</p>
+            </li>
+            <div class="section-border-images">
+                <img src="{% static 'home/Digital Learning.png' %}" alt="Digital Learning Image 0" class="left-image">
+                <img src="{% static 'home/Digital Learning1.png' %}" alt="Digital Learning Image 1" class="right-image">
+            </div>
+            <li>
+                <h3>Community Engagement</h3>
+                <p>Active involvement of parents and local communities in school management and decision-making.</p>
+            </li>
+            <li>
+                <h3>Scholarships and Incentives</h3>
+                <p>We offer scholarships and incentives to motivate students to excel in their studies.</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 Quality Education</p>
+    </div>
+</footer>
+{% endblock body %}

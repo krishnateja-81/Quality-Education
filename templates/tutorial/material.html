@@ -1,0 +1,64 @@
+{% extends 'tutorial/base.html' %}
+{% load static %}
+{% block title %}Tutorial{% endblock title %}
+{% block css %}<link rel="stylesheet" href="{% static 'tutorial_style.css' %}">{% endblock css%}
+{% block body %}
+<style>
+  a{
+    text-decoration: none;
+  }
+</style>
+      
+      <div class="row line grey-back">
+        <div class="col-12 col-lg-4 box">
+          <!-- C button  -->
+          <div class="white-box d-flex flex-column justify-content-center align-items-center">
+            <h5>C</h5>
+            <h4>C is a procedural language</h4>
+            <div class="btn grey-btn"><a href="c_material" style="text-decoration: none;">LEARN C</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 box">
+          <!-- Java button  -->
+          <div class="white-box d-flex flex-column justify-content-center align-items-center">
+          <h5>Java</h5>
+          <h4>Java is a object-oriented language</h4>
+          <div class="btn grey-btn"><a href="java_material">LEARN Java</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 box">
+          <!-- Python button  -->
+          <div class="white-box d-flex flex-column justify-content-center align-items-center">
+          <h5>Python</h5>
+          <h4>Python is a high-level programming language</h4>
+          <div class="btn grey-btn"><a href="python_material">LEARN Python</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 box">
+          <!-- C++ button  -->
+          <div class="white-box d-flex flex-column justify-content-center align-items-center">
+          <h5>C++</h5>
+          <h4>C++ is a object-oriented programming language</h4>
+          <div class="btn grey-btn"><a href="cpp_material">LEARN C++</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 box">
+          <!-- HTML button  -->
+          <div class="white-box d-flex flex-column justify-content-center align-items-center">
+          <h5>HTML</h5>
+          <h4>The language for building web pages</h4>
+          <div class="btn grey-btn"><a href="html_material">LEARN HTML</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 box">
+          <!-- JavaScript button  -->
+          <div class="white-box d-flex flex-column justify-content-center align-items-center">
+          <h5>JavaScript</h5>
+          <h4>The language for programming web pages</h4>
+          <div class="btn grey-btn"><a href="#learnjquery">LEARN JavaScript</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock body %}

@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Tests</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'tutorial_style.css' %}">
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding: 10px; font-weight: bolder ;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home">Quality education</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 " >
+                    <li class="nav-item" >
+                        <a class="nav-link {% block homeactive %}{% endblock homeactive %}" aria-current="page" href="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% block cactive %}{% endblock cactive %}" aria-current="page" href="c_progress">C</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="cpp_progress">C++</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="python_progress">Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% block javaactive %}{% endblock javaactive %}" aria-current="page" href="java_progress">Java</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% block htmlactive %}{% endblock htmlactive %}" aria-current="page" href="html_progress">Html</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% block jsactive %}{% endblock jsactive %}" aria-current="page" href="#">Java Script</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <center><h1>The C Tests is only avabile right now.</h1></center>
+</body>
+</html>

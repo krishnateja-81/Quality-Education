@@ -1,0 +1,216 @@
+{% extends 'progress/base.html' %}
+{% load static %}
+{%block title %}C Tests{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'tutorial_style.css' %}">{% endblock css%}
+{% block cactive %}active{% endblock cactive %}
+{% block conceptname %}C Basics{% endblock conceptname %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <p><strong>1. Who is the creator of the C programming language?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1a" name="q1" value="A">
+            <label class="form-check-label" for="q1a">A) Dennis Ritchie</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1b" name="q1" value="B">
+            <label class="form-check-label" for="q1b">B) Linus Torvalds</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1c" name="q1" value="C">
+            <label class="form-check-label" for="q1c">C) Tim Berners-Lee</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q1d" name="q1" value="D">
+            <label class="form-check-label" for="q1d">D) Guido van Rossum</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>2. When was the C programming language first developed?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2a" name="q2" value="A">
+            <label class="form-check-label" for="q2a">A) 1960s</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2b" name="q2" value="B">
+            <label class="form-check-label" for="q2b">B) 1970s</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2c" name="q2" value="C">
+            <label class="form-check-label" for="q2c">C) 1980s</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q2d" name="q2" value="D">
+            <label class="form-check-label" for="q2d">D) 1990s</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>3. Which programming language influenced the development of C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3a" name="q3" value="A">
+            <label class="form-check-label" for="q3a">A) Java</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3b" name="q3" value="B">
+            <label class="form-check-label" for="q3b">B) COBOL</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3c" name="q3" value="C">
+            <label class="form-check-label" for="q3c">C) Fortran</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q3d" name="q3" value="D">
+            <label class="form-check-label" for="q3d">D) Assembly language</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>4. What is the primary use of the C programming language?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4a" name="q4" value="A">
+            <label class="form-check-label" for="q4a">A) Web development</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4b" name="q4" value="B">
+            <label class="form-check-label" for="q4b">B) Game development</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4c" name="q4" value="C">
+            <label class="form-check-label" for="q4c">C) System programming</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q4d" name="q4" value="D">
+            <label class="form-check-label" for="q4d">D) Artificial intelligence</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>5. Which of the following is NOT a feature of C?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5a" name="q5" value="A">
+            <label class="form-check-label" for="q5a">A) Object-oriented programming</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5b" name="q5" value="B">
+            <label class="form-check-label" for="q5b">B) Low-level memory access</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5c" name="q5" value="C">
+            <label class="form-check-label" for="q5c">C) Strongly typed</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q5d" name="q5" value="D">
+            <label class="form-check-label" for="q5d">D) Procedural programming</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>6. C is often referred to as a "middle-level" programming language because it combines elements of
+                both _________ and __________ languages.</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6a" name="q6" value="A">
+            <label class="form-check-label" for="q6a">A) High-level, low-level</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6b" name="q6" value="B">
+            <label class="form-check-label" for="q6b">B) Low-level, machine</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6c" name="q6" value="C">
+            <label class="form-check-label" for="q6c">C) Machine, assembly</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q6d" name="q6" value="D">
+            <label class="form-check-label" for="q6d">D) High-level, assembly</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>7. In C, what is the purpose of a header file?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7a" name="q7" value="A">
+            <label class="form-check-label" for="q7a">A) To store data</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7b" name="q7" value="B">
+            <label class="form-check-label" for="q7b">B) To declare functions and data types</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7c" name="q7" value="C">
+            <label class="form-check-label" for="q7c">C) To define classes</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q7d" name="q7" value="D">
+            <label class="form-check-label" for="q7d">D) To create loops</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>8. Which programming language is often called the "successor" of C due to its similarities and
+                widespread use?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8a" name="q8" value="A">
+            <label class="form-check-label" for="q8a">A) Pascal</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8b" name="q8" value="B">
+            <label class="form-check-label" for="q8b">B) Java</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8c" name="q8" value="C">
+            <label class="form-check-label" for="q8c">C) C++</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q8d" name="q8" value="D">
+            <label class="form-check-label" for="q8d">D) COBOL</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>9. What is the file extension commonly used for C source code files?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9a" name="q9" value="A">
+            <label class="form-check-label" for="q9a">A) .txt</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9b" name="q9" value="B">
+            <label class="form-check-label" for="q9b">B) .exe</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9c" name="q9" value="C">
+            <label class="form-check-label" for="q9c">C) .cpp</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q9d" name="q9" value="D">
+            <label class="form-check-label" for="q9d">D) .c</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p><strong>10. Which C library function is used to read input from the user?</strong></p>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10a" name="q10" value="A">
+            <label class="form-check-label" for="q10a">A) printf</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10b" name="q10" value="B">
+            <label class="form-check-label" for="q10b">B) getchar</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10c" name="q10" value="C">
+            <label class="form-check-label" for="q10c">C) scanf</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="q10d" name="q10" value="D">
+            <label class="form-check-label" for="q10d">D) gets</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock body %}

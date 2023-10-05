@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Courses</title>
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+    <style>
+        /* Reset some default styles for consistency */
+        body, h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header styles */
+        header {
+            font-size: larger;
+            font-weight: bold;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            margin-left: 20px;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6f61;
+        }
+
+        /* Explore Courses section styles */
+        .explore-courses {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .explore-courses h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .course-card {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-card img {
+            max-width: 100%;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+        
+        .course-card h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+        
+        .course-card p {
+            font-size: 1rem;
+            color: #777;
+            margin: 10px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #333;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .explore-courses {
+                padding: 20px 0;
+            }
+        
+            .course-card {
+                margin: 10px;
+            }
+        
+            .course-card h3 {
+                font-size: 1.2rem;
+            }
+        
+            .course-card p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">EXPLORE COURSES</div>
+        <nav class="nav-links">
+            <a href="mentor">Home</a>
+            <!-- Add other navigation links if needed -->
+        </nav>
+    </header>
+
+    <!-- Explore Courses Section -->
+    <section class="explore-courses">
+        <h2>Explore Our Courses</h2>
+        <div class="course-card">
+            <img src="{% static 'mentor/course1.jpg' %}" alt="Course 1">
+            <h3>C LANGUAGE TUTORIALS</h3>
+            <!-- <p>Description of Course 1.</p> -->
+            <a href="clanguage" class="btn">Enroll Now</a>
+        </div>
+        <div class="course-card">
+            <img src="{% static 'mentor/course2.jpg' %}" alt="Course 2">
+            <h3>JAVA</h3>
+            <!-- <p>Description of Course 2.</p> -->
+            <a href="java" class="btn">Enroll Now</a>
+        </div>
+        <div class="course-card">
+            <img src="{% static 'mentor/course3.jpg' %}" alt="Course 3">
+            <h3>PYTHON</h3>
+            <a href="python" class="btn">Enroll Now</a>
+        </div>
+        <!-- Add more course cards here -->
+    </section>
+</body>
+</html>

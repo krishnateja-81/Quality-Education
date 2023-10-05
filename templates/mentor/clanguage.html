@@ -1,0 +1,231 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C LANGUAGE</title>
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, h3, h4, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        header {
+            background-color: #202020;
+            color: white;
+            padding: 3px 1px;
+        }
+
+        header h1 {
+            font-size: 15px;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .video-section {
+            flex: 2;
+            margin-right: 20px;
+        }
+
+        .video-section iframe {
+            width: 100%;
+            height: 400px;
+        }
+
+        .upcoming-content {
+            flex: 1;
+        }
+
+        .upcoming-content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .upcoming-video {
+            margin-bottom: 20px;
+        }
+
+        .upcoming-video img {
+            width: 100%;
+            height: auto;
+        }
+
+        .upcoming-video-title {
+            cursor: pointer;
+            padding: 5px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .video-title {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        /* ... (previous CSS code) */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 16px;
+    }
+
+    .video-section {
+        flex: none; /* Disable flex for video section */
+        margin-right: 0;
+    }
+
+    .video-section iframe {
+        width: 100%;
+        height: auto; /* Auto height for responsive iframe */
+    }
+
+    .upcoming-content {
+        flex: none; /* Disable flex for upcoming content */
+        margin-top: 20px; /* Add space between video and upcoming content */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <center>
+            <h1>C LANGUAGE TUTORIALS</h1>
+        </center>
+        <h3><a href="mentor" style="color: #f0f0f0; text-decoration: none;">Home</a></h3>
+        </div>
+    </header>
+    <main class="container">
+        <div class="video-section">
+            <!-- Embed the YouTube video you want to play -->
+            <iframe id="video-player" width="560" height="315" src="https://www.youtube.com/embed/rQoqCP7LX60" frameborder="0" allowfullscreen></iframe>
+            <!-- Display the video title below the video player -->
+            <div class="video-title" id="video-title">Video 1 Title</div>
+        </div>
+        <div class="upcoming-content">
+            <h3>Upcoming Content</h3>
+            <!-- List of upcoming video titles -->
+            <div id="upcoming-videos">
+                <!-- Upcoming video titles will be dynamically added here -->
+            </div>
+        </div>
+    </main>
+    <script>
+        // Array of video information (title, URL, and thumbnail)
+        const videos = [
+            {
+                title: '1.Variables, Operators and Input/ Output ',
+                url: 'https://www.youtube.com/embed/rQoqCP7LX60',
+                thumbnail: 'thumbnail1.jpg'
+            },
+            {
+                title: '2.If Else',
+                url: 'https://www.youtube.com/embed/7PSfRdeY5qE',
+                thumbnail: 'thumbnail1.jpg'
+            },
+            // Add more videos as needed
+            {
+                title: '3.Loops',
+                url: 'https://www.youtube.com/embed/wYvrBXUfFfw?si=j2oh1WNte6qRpQoc',
+                thumbnail: 'thumbnail1.jpg'
+            },
+            {
+                title: '4.Pattern Printing',
+                url: 'https://www.youtube.com/embed/clIcH1ALHMw?si=AddvJ1PaGi0ltxtz',
+                thumbnail: 'thumbnail1.jpg'
+            },
+            {
+                title: '5.Functions & Pointers',
+                url: 'https://www.youtube.com/embed/mIY3QVktHU8?si=Hx18Vf1n0OlQ4OPB',
+                thumbnail: 'thumbnail1.jpg'
+            },
+            {
+                title: '6.Recursion',
+                url: 'https://www.youtube.com/embed/Bd-1YM8taBc?si=VesKhMJTnN93og-s',
+                thumbnail: 'thumbnail1.jpg'
+            },
+            {
+                title: '7.Arrays',
+                url: 'https://www.youtube.com/embed/aWKJ5lRgI3U?si=VCVmN-6xl-R1q0M8',
+                thumbnail: 'thumbnail1.jpg'
+            },
+            {
+                title: '8.2D Arrays',
+                url: 'https://www.youtube.com/embed/sEiMDFdbPGo?si=gAPV7-6pLifJBsFR',
+                thumbnail: 'thumbnail1.jpg'
+            },
+            {
+                title: '9.Strings',
+                url: 'https://www.youtube.com/embed/8qKp63Ox3vQ?si=Pocmwrgihsh82M_y',
+                thumbnail: 'thumbnail1.jpg'
+            },
+            {
+                title: '10.Structures',
+                url: 'https://www.youtube.com/embed/nDmULDo8D18?si=AGcT9mw8w07yPyWt',
+                thumbnail: 'thumbnail1.jpg'
+            },
+            {
+                title: '11.Sorting | Time and Space Analysis ',
+                url: 'https://www.youtube.com/embed/9s1_FWWxvlg?si=5bp_AsQKNr4AwcH-',
+                thumbnail: 'thumbnail1.jpg'
+            },
+            {
+                title: '12.File Handling',
+                url: 'https://www.youtube.com/embed/4DljBbiC2p4?si=-1mSqvRpn01NrEmb',
+                thumbnail: 'thumbnail1.jpg'
+            },
+        ];
+
+        let currentVideoIndex = 0;
+
+        // Function to load a video into the player
+        function loadVideo(index) {
+            const videoPlayer = document.getElementById('video-player');
+            const videoTitle = document.getElementById('video-title');
+            videoPlayer.src = videos[index].url;
+            videoTitle.textContent = videos[index].title;
+            currentVideoIndex = index;
+            updateUpcomingVideos();
+        }
+
+        // Function to update the upcoming video titles
+        function updateUpcomingVideos() {
+            const upcomingVideos = document.getElementById('upcoming-videos');
+            upcomingVideos.innerHTML = '';
+
+            for (let i = 0; i < videos.length; i++) {
+                if (i !== currentVideoIndex) {
+                    const video = videos[i];
+                    const videoTitle = document.createElement('div');
+                    videoTitle.classList.add('upcoming-video-title');
+                    videoTitle.textContent = video.title;
+                    videoTitle.addEventListener('click', () => loadVideo(i));
+                    upcomingVideos.appendChild(videoTitle);
+                }
+            }
+        }
+
+        // Initial load of the first video and its title, and the upcoming video titles
+        loadVideo(0);
+        updateUpcomingVideos();
+    </script>
+</body>
+</html>
