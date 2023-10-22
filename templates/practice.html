@@ -10,7 +10,66 @@
     a{
       text-decoration: none;
     }
-  </style>
+        .workflow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .stage {
+            text-align: center;
+            width: 120px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .arrow {
+            width: 30px;
+            text-align: center;
+            position: relative;
+        }
+        .arrow::before {
+            content: "";
+            position: absolute;
+            border: 2px solid #007bff;
+            width: 30px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #compiler-content{
+            background-color: #f7f7f7;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+@media (max-width: 576px) {
+    .workflow-container {
+        flex-direction: column;
+    }
+    .arrow {
+        width: 30px;
+        height: 30px; /* Change height to 30px for downward arrow */
+        text-align: center;
+        position: relative;
+    }
+    .arrow::before {
+        content: "";
+        position: absolute;
+        border: 2px solid #007bff;
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent; /* Create a downward arrow */
+        border-right: 15px solid transparent;
+        border-top: 15px solid #007bff;
+        top: 0; /* Adjust position to top */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+    </style>
 <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" style="padding: 10px;">Compilers </a>
@@ -28,9 +87,7 @@
     </div>
     </div>
 </nav>
-<div class="concept" id="default_content">
-    <h1 style="text-align: center; justify-content: center;">The c , c++ , java are not available right now.!</h1>
-  </div>
+
 
 <div class="concept" id="python">
     <iframe src="https://trinket.io/embed/python/5061dfbd61" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
@@ -48,20 +105,175 @@
 <div class="concept" id="java">
   <h1 style="text-align: center; justify-content: center;">The c , c++ , java are not available right now.!</h1>
 </div>
+<div class="container mt-4">
+<section id="compiler-content">
+    <div class="container mt-5">
+        <h1 class="text-center">What is a Compiler?</h1>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <p>
+                    A compiler is a software program that translates or compiles source code written in a high-level programming language into machine code or a lower-level code that can be executed directly by a computer's central processing unit (CPU).
+                </p>
+                <p>
+                    The process of converting high-level code into machine code is known as compilation. Compilers play a crucial role in the software development process by enabling developers to write code in human-readable languages while ensuring that the code can be executed efficiently by the computer.
+                </p>
+                <p>
+                    Here are some key points to understand about compilers:
+                </p>
+                <ul>
+                    <li><strong>Source Code:</strong> Source code is the human-readable code written by programmers in high-level programming languages like Python, C++, Java, and others. These languages use English-like syntax and are designed for ease of programming.</li>
+                    <li><strong>Compilation:</strong> When a programmer writes code in a high-level language, it cannot be directly executed by a computer. A compiler is used to transform this source code into machine code, which is composed of binary instructions that the CPU can understand and execute.</li>
+                    <li><strong>Intermediate Representation:</strong> In some cases, the compiler may generate an intermediate representation or bytecode instead of machine code. Bytecode is a lower-level representation that is typically interpreted by a runtime environment, such as the Java Virtual Machine (JVM) or the Common Language Runtime (CLR) in .NET.</li>
+                    <li><strong>Compilation Process:</strong> The compilation process typically involves several stages, including lexical analysis, syntax analysis, semantic analysis, code generation, and optimization. Each stage checks the code for correctness and may perform various transformations to make the code more efficient.</li>
+                    <li><strong>Benefits of Compilation:</strong> Compiled code generally runs faster than interpreted code because it is already in a format that the CPU can execute directly. It is often more difficult to reverse-engineer than interpreted code and can catch certain types of errors (e.g., type errors) before the code is executed.</li>
+                    <li><strong>Examples of Compilers:</strong> There are many programming language compilers, each designed for a specific language. For example, the GCC compiler is used for the C and C++ programming languages, and the Java compiler is used for the Java language.</li>
+                    <li><strong>Interpreters:</strong> In contrast to compilers, interpreters read and execute source code line by line without producing a separate compiled binary. Languages like Python and JavaScript are typically interpreted.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+        <div class="container mt-5">
+        <h1 class="text-center">Compiler Workflow</h1>
+        <div class="workflow-container">
+            <div class="stage">
+                <p>Lexical Analysis</p>
+            </div>
+            <div class="arrow"></div>
+            <div class="stage">
+                <p>Syntax Analysis</p>
+            </div>
+            <div class="arrow"></div>
+            <div class="stage">
+                <p>Semantic Analysis</p>
+            </div>
+            <div class="arrow"></div>
+            <div class="stage">
+                <p>Intermediate Code Generation</p>
+            </div>
+            <div class="arrow"></div>
+            <div class="stage">
+                <p>Code Optimization</p>
+            </div>
+            <div class="arrow"></div>
+            <div class="stage">
+                <p>Code Generation</p>
+            </div>
+            <div class="arrow"></div>
+            <div class="stage">
+                <p>Linking & Loading</p>
+            </div>
+            <div class="arrow"></div>
+            <div class="stage">
+                <p>Output</p>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <h1 class="text-center">Beginner Programming Questions</h1>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>1. Hello, World!</strong>
+                        <p>A classic program that prints "Hello, World!" to the console.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>2. Sum of Two Numbers</strong>
+                        <p>Write a program that calculates and displays the sum of two numbers.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>3. Factorial Calculation</strong>
+                        <p>Write a program that calculates the factorial of a given number.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>4. Guess the Number</strong>
+                        <p>Implement a guessing game where the user guesses a secret number.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>5. Even or Odd</strong>
+                        <p>Write a program to check if a number is even or odd.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>6. Fibonacci Sequence</strong>
+                        <p>Generate and display the Fibonacci sequence up to a certain limit.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>7. Palindrome Checker</strong>
+                        <p>Write a program that checks if a given string is a palindrome.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>8. Prime Number Checker</strong>
+                        <p>Write a program to check if a number is prime or not.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>9. Calculator</strong>
+                        <p>Create a basic calculator that can perform arithmetic operations.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>10. Print a Triangle</strong>
+                        <p>Write a program to print a triangle of stars.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>11. String Reversal</strong>
+                        <p>Write a program to reverse a given string.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>12. List Operations</strong>
+                        <p>Perform various operations on lists, such as sorting and filtering.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>13. Count Vowels and Consonants</strong>
+                        <p>Count the number of vowels and consonants in a given string.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>14. Leap Year Checker</strong>
+                        <p>Write a program to check if a year is a leap year.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>15. Simple To-Do List</strong>
+                        <p>Create a simple to-do list application with basic CRUD operations.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>16. Temperature Converter</strong>
+                        <p>Convert temperatures between Fahrenheit and Celsius.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>17. Rock, Paper, Scissors Game</strong>
+                        <p>Implement the classic game of rock, paper, scissors.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>18. Character Frequency Counter</strong>
+                        <p>Count the frequency of each character in a given string.</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>19. Basic Calculator with GUI</strong>
+                        <p>Create a basic calculator with a graphical user interface (GUI).</p>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>20. Reverse a List</strong>
+                        <p>Write a program to reverse the elements of a list.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </section>
+    </div>
 <script>
     function showConcept(conceptId) {
       var concepts = document.getElementsByClassName('concept');
       for (var i = 0; i < concepts.length; i++) {
         concepts[i].style.display = 'none';
       }
-  
+
       document.getElementById(conceptId).style.display = 'block';
     }
     function showDefaultContent() {
     showConcept('default_content');
   }
-  
-  
+
+
   window.onload = showDefaultContent;
   </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

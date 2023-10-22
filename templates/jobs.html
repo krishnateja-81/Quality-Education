@@ -3,18 +3,43 @@
 {% block title %}Jobs{% endblock title %}
 {% block jobsactive %}active{% endblock jobsactive %}
 {% block body %}
+<style>
+    #job-search-tips {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#job-search-tips h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#job-search-tips ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+#job-search-tips li {
+    margin-bottom: 10px;
+}
+
+
+</style>
 <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand">Jobs </a>
       <form class="d-flex" role="search" method="post">
         {% csrf_token %}
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="job" id="job">
+        <input class="form-control me-2" type="search" placeholder="Domain" aria-label="Search" name="job" id="job">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
 </nav>
 <div class="container mt-4">
   <center><h1>{{ err }}</h1></center>
+  {% if job_data is not None %}
   <h1 class="mb-4">Job Search Results</h1>
   <div class="clearfix"></div>
   <button class="btn btn-primary ml-auto" id="refresh-button">Next</button>
@@ -26,6 +51,7 @@
               <th>Salary</th>
               <th>Location</th>
               <th>Status</th>
+              <th>Apply</th>
           </tr>
       </thead>
       <tbody>
@@ -36,10 +62,186 @@
                   <td>{{ row.2 }}</td>
                   <td>{{ row.3 }}</td>
                   <td>{{ row.4 }}</td>
+                  <td><a href="https://www.linkedin.com/jobs/search/?'currentJobId=''&keywords={{ row.1 }}&origin=JOB_SEARCH_PAGE_JOB_FILTER" style="text-decoration:None;">Apply</a></td>
               </tr>
           {% endfor %}
       </tbody>
   </table>
+  {% endif %}
+<section id="job-search-tips">
+    <h1 class="text-center">Job Search Tips</h1>
+    <ul>
+        <li>Customize your resume and cover letter for each application.</li>
+        <li>Network with professionals in your industry on platforms like LinkedIn.</li>
+        <li>Set up job alerts to stay informed about new job openings.</li>
+        <li>Prepare for interviews by researching the company and practicing common questions.</li>
+        <li>Don't forget to follow up with companies after interviews to express your continued interest.</li>
+    </ul>
+
+        <div class="container mt-5">
+        <h2>Resume Building Tips:</h2>
+
+        <h2>Format and Content</h2>
+        <ul>
+            <li>Use a clean and professional format.</li>
+            <li>Start with a strong summary or objective.</li>
+            <li>Highlight your skills.</li>
+            <li>List your work experience and quantify achievements.</li>
+            <li>Include education and certifications.</li>
+        </ul>
+
+        <h2>Customization and Proofreading</h2>
+        <ul>
+            <li>Add keywords and customize for each job.</li>
+            <li>Proofread carefully for errors.</li>
+            <li>Include contact information.</li>
+            <li>Use a professional email address.</li>
+            <li>Keep it concise (1-2 pages).</li>
+        </ul>
+
+        <h2>Additional Tips</h2>
+        <ul>
+            <li>Use a professional tone throughout.</li>
+            <li>Seek feedback from trusted individuals.</li>
+            <li>Update your resume regularly.</li>
+            <li>Consider a portfolio or work samples.</li>
+            <li>Save your resume as a PDF.</li>
+        </ul>
+
+        <h2>References and Contact</h2>
+        <ul>
+            <li>Include professional references if desired.</li>
+            <li>Keep contact information up to date.</li>
+        </ul>
+    </div>
+        <div class="container mt-5">
+        <h1>Resume Writing Tips:</h1>
+
+        <h2 class="mt-4">Do's:</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Customize your resume for each job application.</li>
+            <li class="list-group-item">Use a clean and professional format.</li>
+            <li class="list-group-item">Include a strong summary or objective statement.</li>
+            <li class="list-group-item">Highlight your key skills.</li>
+            <li class="list-group-item">List your work experience with a focus on accomplishments.</li>
+            <li class="list-group-item">Use action verbs to describe achievements.</li>
+            <li class="list-group-item">Quantify achievements with specific numbers.</li>
+            <li class="list-group-item">Include your education and relevant certifications.</li>
+            <li class="list-group-item">Proofread your resume for errors and formatting issues.</li>
+            <li class="list-group-item">Provide up-to-date contact information.</li>
+        </ul>
+
+        <h2 class="mt-4">Don'ts:</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Don't use a generic resume for all applications.</li>
+            <li class="list-group-item">Don't use an unprofessional email address.</li>
+            <li class="list-group-item">Don't include irrelevant information.</li>
+            <li class="list-group-item">Don't provide excessive detail.</li>
+            <li class="list-group-item">Don't use abbreviations or acronyms without explanation.</li>
+            <li class="list-group-item">Don't include references on the resume.</li>
+            <li class="list-group-item">Don't use the same resume for all jobs without customization.</li>
+            <li class="list-group-item">Don't forget to update your resume regularly.</li>
+            <li class="list-group-item">Don't use unprofessional language in your resume.</li>
+            <li class="list-group-item">Don't save your resume in the wrong format.</li>
+        </ul>
+    </div>
+    <div class="container mt-5">
+        <h1 class="text-center">Projects to Power up Your Resume</h1>
+
+        <p>Listing relevant projects on your resume can help showcase your skills and experience. Here are some project ideas with detailed descriptions to make your resume more powerful:</p>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                1. Personal Website or Portfolio
+            </div>
+            <div class="card-body">
+                <p>Create a personal website to showcase your work, skills, and accomplishments. Include sections for your resume, projects, blog, and contact information. This project demonstrates your web development and design abilities.</p>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                2. Open Source Contributions
+            </div>
+            <div class="card-body">
+                <p>Contribute to open-source projects on platforms like GitHub. Collaborating with other developers on real-world projects shows your coding skills and commitment to the developer community.</p>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                3. Mobile Apps
+            </div>
+            <div class="card-body">
+                <p>Develop mobile apps for Android or iOS. Mention the apps you've created or contributed to, along with their functionalities. Highlight any user interface design and user experience considerations.</p>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                4. Data Analysis Projects
+            </div>
+            <div class="card-body">
+                <p>If you're into data science or analysis, include projects where you've analyzed data, created visualizations, and drawn insights. Describe the data sources, tools, and methodologies you used to uncover valuable information.</p>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                5. Freelance Work
+            </div>
+            <div class="card-body">
+                <p>Include projects related to freelance work or consulting. Highlight specific tasks, clients, and outcomes, demonstrating your expertise in a particular field.</p>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                6. Hackathons and Competitions
+            </div>
+            <div class="card-body">
+                <p>Mention any hackathons or coding competitions you've participated in. Describe the challenges, your role, and any awards or recognitions you received.</p>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                7. Research Projects
+            </div>
+            <div class="card-body">
+                <p>If you've conducted research, mention the projects you've worked on, the research questions, and the outcomes. Emphasize any publications or presentations related to your research.</p>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                8. Machine Learning and AI
+            </div>
+            <div class="card-body">
+                <p>Highlight machine learning or artificial intelligence projects that showcase your abilities to work with data and develop intelligent systems. Describe the problem-solving approach and results.</p>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                9. Community Involvement
+            </div>
+            <div class="card-body">
+                <p>Include projects related to volunteer work or community involvement. Describe your role, the impact on the community, and the skills you applied, such as leadership and social engagement.</p>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                10. Personal Initiatives
+            </div>
+            <div class="card-body">
+                <p>If you've initiated any personal projects, such as blogs, YouTube channels, or podcasts, mention them to demonstrate your self-starter attitude and content creation skills.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 </div>
 <script>
   document.getElementById('refresh-button').addEventListener('click', function() {

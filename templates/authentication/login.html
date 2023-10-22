@@ -17,6 +17,7 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" name="password" oninput="passwordPreview()" placeholder="enter your password" style="margin: 0;">
             <input type="text" class="form-control" name="passwordview" id="passwordview" style="padding: 5px 5px; margin: 0; border-radius: 0; border-top: none; background-color: white;" readonly>
+            <p style="color:red;">{{ loginerr }}</p>
         </div>
         <center><button type="submit" class="btn btn-primary" >Submit</button></center>
         <div class="container align-content-center my-3">

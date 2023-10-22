@@ -5,8 +5,8 @@ import pandas as p
 import matplotlib.pyplot as plt
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.http import HttpResponseNotFound
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.staticfiles.finders import find
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from quality_education import settings
@@ -27,6 +27,7 @@ def home(request):
 
 #authentication
 def user_login(request):
+    err = {}
     if request.method == "POST":
         uname = request.POST['uname']
         password = request.POST['password']
@@ -38,8 +39,9 @@ def user_login(request):
             return redirect('home')
 
         else:
-            return redirect('register')
-    return render(request, "authentication/login.html")
+            return redirect('login')
+            err['loginerr'] = "invalid credintails!"
+    return render(request, "authentication/login.html",err)
 
 
 def register(request):
@@ -57,7 +59,7 @@ def register(request):
             values['lname'] = lname
             values['email'] = email
             values['uname'] = uname
-    
+
         elif User.objects.filter(username=uname).exists():
             #print("uname")
             values['fname'] = fname
@@ -78,7 +80,7 @@ def register(request):
             totp = pyotp.TOTP(otp_secret)
             otp = totp.now()
             print(otp)
-            subject = f'Welcome to the website'
+            subject = 'Welcome to the website'
             message = f'Hello {fname} { lname }!!\n\nplease verify your account\nYour OTP for email verification is: {otp}\n\nThank You!!!'
 
             # Send OTP via email
@@ -125,7 +127,7 @@ def otp_verification(request):
 
 
 def user_logout(request):
-    logout(request) 
+    logout(request)
     return redirect('login')
 
 #practice
@@ -134,7 +136,7 @@ def practice(request):
     return render(request, 'practice.html')
 
 
-#courses 
+#courses
 
 @login_required
 def mentor(request):
@@ -165,20 +167,21 @@ def jobs(request):
     jobs = {}
     if request.method == "POST":
         try:
-            data = p.read_excel(r'C:\Users\Admin\Desktop\student\static\job_data.xlsx')
+            data = p.read_excel(find('job_data.xlsx'))
             data = data.drop('Unnamed: 0', axis=1)
             job = request.POST['job']
-            
+            jobs["domain"] = job
+
             def search(query):
                 results = data[data['Job Title'].str.contains(query, case=False, na=False)]
                 return results
-            
-            jobs_list = search(job).sample(n=10)
+
+            jobs_list = search(job).sample(n=20)
             jobs_data = jobs_list[['Company Name', 'Job Title', 'Salary', 'Location','Employment Status']].values.tolist()
 
             jobs['job_data'] = jobs_data
         except:
-            jobs['err'] = "No Jobs found...please check your input"
+            jobs['err'] = "No Jobs found...please check your Domain"
 
     return render(request, "jobs.html", jobs)
 #loans
@@ -219,6 +222,9 @@ def html_material(request):
 @login_required
 def progress(request):
     uname = request.session.get('username','')
+    if uname == '':
+        logout(request)
+        return redirect('login')
     try:
         c_language = models.c_language.objects.get(username = uname)
     except:
@@ -248,12 +254,16 @@ def progress(request):
             models.c_language.objects.create(
                 username = uname,
                 basics = score
-            ) 
+            )
     return render(request, "progress/c/c.html", values)
 #c progress
 @login_required
 def c_progress(request):
     uname = request.session.get('username','')
+    if uname == '':
+        logout(request)
+        return redirect('login')
+
     try:
         c_language = models.c_language.objects.get(username = uname)
     except:
@@ -283,7 +293,7 @@ def c_progress(request):
             models.c_language.objects.create(
                 username = uname,
                 basics = score
-            ) 
+            )
     return render(request, "progress/c/c.html", values)
 
 @login_required
@@ -314,12 +324,12 @@ def c_printf_scanf(request):
         if models.c_language.objects.filter(username = uname).exists():
             if score > max_score:
                 models.c_language.objects.filter(username = uname).update(printf_scanf=score)
-                
+
         else:
             models.c_language.objects.create(
                 username = uname,
                 printf_scanf = score
-            ) 
+            )
     print(userans)
     print(score)
     return render(request, "progress/c/c_printf_scanf.html", values)
@@ -357,7 +367,7 @@ def c_variables(request):
             models.c_language.objects.create(
                 username = uname,
                 variables = score
-            ) 
+            )
     return render(request, "progress/c/c_variables.html", values)
 
 @login_required
@@ -393,7 +403,7 @@ def c_datatypes(request):
             models.c_language.objects.create(
                 username = uname,
                 datatypes = score
-            ) 
+            )
     return render(request, "progress/c/c_datatypes.html", values)
 
 @login_required
@@ -429,7 +439,7 @@ def c_typeConversion(request):
             models.c_language.objects.create(
                 username = uname,
                 typeConversion = score
-            ) 
+            )
     return render(request, "progress/c/c_typeConversion.html", values)
 
 @login_required
@@ -465,7 +475,7 @@ def c_operators(request):
             models.c_language.objects.create(
                 username = uname,
                 operators = score
-            ) 
+            )
     return render(request, "progress/c/c_operators.html", values)
 
 @login_required
@@ -501,7 +511,7 @@ def c_conditional_statements(request):
             models.c_language.objects.create(
                 username = uname,
                 conditional_statements = score
-            ) 
+            )
     return render(request, "progress/c/c_conditional_statements.html", values)
 
 @login_required
@@ -537,7 +547,7 @@ def c_loops(request):
             models.c_language.objects.create(
                 username = uname,
                 loops = score
-            ) 
+            )
     return render(request, "progress/c/c_loops.html", values)
 
 @login_required
@@ -573,7 +583,7 @@ def c_break_continue(request):
             models.c_language.objects.create(
                 username = uname,
                 break_continue = score
-            ) 
+            )
     return render(request, "progress/c/c_break_continue.html", values)
 
 @login_required
@@ -609,7 +619,7 @@ def c_strings(request):
             models.c_language.objects.create(
                 username = uname,
                 strings = score
-            ) 
+            )
     return render(request, "progress/c/c_strings.html", values)
 
 @login_required
@@ -645,7 +655,7 @@ def c_arrays(request):
             models.c_language.objects.create(
                 username = uname,
                 arrays = score
-            ) 
+            )
     return render(request, "progress/c/c_arrays.html", values)
 
 @login_required
@@ -681,7 +691,7 @@ def c_pointers(request):
             models.c_language.objects.create(
                 username = uname,
                 pointers = score
-            ) 
+            )
     return render(request, "progress/c/c_pointers.html", values)
 
 @login_required
@@ -717,7 +727,7 @@ def c_functions(request):
             models.c_language.objects.create(
                 username = uname,
                 functions = score
-            ) 
+            )
     return render(request, "progress/c/c_functions.html", values)
 
 @login_required
@@ -753,7 +763,7 @@ def c_files(request):
             models.c_language.objects.create(
                 username = uname,
                 files = score
-            ) 
+            )
     return render(request, "progress/c/c_files.html", values)
 
 @login_required
@@ -789,14 +799,17 @@ def c_structures(request):
             models.c_language.objects.create(
                 username = uname,
                 structures = score
-            ) 
+            )
     return render(request, "progress/c/c_structures.html", values)
 
 
 @login_required
 def analysis(request):
-    need_to_learn = []
     uname = request.session.get('username','')
+    if uname == '':
+        logout(request)
+        return redirect('login')
+    need_to_learn = []
     try:
         c_language = models.c_language.objects.get(username = uname)
     except:
@@ -836,7 +849,7 @@ def analysis(request):
             plt.annotate(f"{value:.2f}", (i, value), textcoords="offset points", xytext=(0, 10), ha='center')
 
     plt.xlabel('Topics')
-    plt.ylabel('Score') 
+    plt.ylabel('Score')
     plt.xticks(rotation=45)
     plt.legend()
     plt.tight_layout()
@@ -870,7 +883,44 @@ def html_progress(request):
 def profile(request):
     user_data = {}
     uname = request.session.get('username', '')
+    if uname == '':
+        logout(request)
+        return redirect('login')
     user = User.objects.get(username = uname)
     user_data['user'] = user
+    if request.method == "POST":
+        uname = request.POST['uname']
+        fname = request.POST['fname']
+        lname = request.POST['lname']
+        oldpass = request.POST['oldpass']
+        password = request.POST['password']
+        cpassword = request.POST['cpassword']
+        if fname.isalnum() and lname.isalnum():
+            if len(password)>6 and password.isalnum():
+                if password == cpassword :
+                    if user.check_password(oldpass):
+                        # The old password matches, update user information
+                        user.username = uname
+                        user.first_name = fname
+                        user.last_name = lname
+
+                        # Check if a new password is provided and update it
+                        if password:
+                            user.set_password(password)
+                            # Update the session authentication hash
+                            update_session_auth_hash(request, user)
+
+                        user.save()
+                        user_data['warning'] = "Updated Successfully"
+                    else:
+                        user_data['warning'] = "Check your Old Password"
+                else:
+                    user_data['warning'] = "Password and Confirm Password doesn't match"
+            else:
+                 user_data['warning'] = "Password must be at least 6 characters long and should contain both alphabets and numbers"
+        else:
+            user_data['warning'] = "First Name and Last Name must contain only Alphabets"
+
+
     # print(user_data['first_name'])
     return render(request, "profile.html", user_data)

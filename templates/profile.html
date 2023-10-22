@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Profile{% endblock title %}
 {% block profileactive %}active{% endblock profileactive %}
 
@@ -11,6 +12,14 @@
         padding: 5px;
     }
 </style>
+{% if warning %}
+<div class="container mt-5">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ warning }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+{% endif %}
 <div class="container mt-5">
     <h1>User Profile</h1>
     <div class="profile-info">
@@ -46,16 +55,18 @@
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <label for="fname">User Id:</label>
-                                            <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your First Name" value="{{ user.username }}" readonly>
-                                            <span style="color: red;">Its Read only </span>
+                                            <input type="text" class="form-control" id="uname" name="uname" value="{{ user.username }}" readonly>
+                                            <span style="">You can't Change the USerName</span>
                                         </div>
                                         <div class="form-group">
                                             <label for="fname">First Name:</label>
                                             <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your First Name" value="{{ user.first_name }}">
+                                            <div class="error-message" id="fnameerr"></div>
                                         </div>
                                         <div class="form-group">
                                             <label for="lname">Last Name:</label>
                                             <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter your Last Name" value="{{ user.last_name }}">
+                                            <div class="error-message" id="lnameerr"></div>
                                         </div>
                                         <div class="form-group">
                                             <label for="oldpass">Old Password:</label>
@@ -64,35 +75,36 @@
                                         <div class="form-group">
                                             <label for="password">New Password:</label>
                                             <input type="password" class="form-control" id="password" name="password" placeholder="Enter your New Password">
+                                            <div class="error-message" id="passworderr"></div>
                                         </div>
                                         <div class="form-group">
                                             <label for="cpassword">Confirm New Password:</label>
-                                            <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Confirm your New Password">
+                                            <input type="password" class="form-control" id="confirmpassword" name="cpassword" placeholder="Confirm your New Password">
+                                            <div class="error-message" id="passworderr1"></div>
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Email</label>
                                             <input type="email" class="form-control" id="email" name="email" placeholder="Confirm your New Password" value="{{ user.email }}" readonly>
+                                            <span style="">You can't Change the Email</span>
                                         </div>
                                         <br>
-                                        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                                        <button type="submit" class="btn btn-primary btn-block" onclick="validate()">Save Changes</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save Changes</button>
+                <button type="button" class="btn btn-primary" >Save Changes</button>
             </div>
         </div>
     </div>
 </div>
-
 <!-- Include Bootstrap and jQuery JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 {% endblock body %}

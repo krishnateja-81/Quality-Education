@@ -28,7 +28,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'krishnateja8432@gmail.com' 
+EMAIL_HOST_USER = 'krishnateja8432@gmail.com'
 EMAIL_HOST_PASSWORD = 'cnjzjudzrhlnvklj'
 EMAIL_DEBUG = True
 
@@ -131,7 +131,7 @@ LOGIN_URL = 'login'  # Replace with the URL of your login page
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 STATIC_URL = 'static/'
