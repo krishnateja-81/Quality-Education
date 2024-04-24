@@ -80,4 +80,5 @@ Quality Education Platform is a web application developed using Django, which ai
 ### Contributors
 
 - [SIRVISETTI KRISHNA TEJA](https://github.com/krishnateja-81)
-- [	KANUMURI HARSHITH ](https://github.com/harshith1315)
+- [KANUMURI HARSHITH](https://github.com/harshith1315)
+- [KRISHNA CHAITANYA SANAGALA](https://github.com/KC684)
