@@ -60,7 +60,7 @@ Quality Education Platform is a web application developed using Django, which ai
 1. Clone the repository:
 
    ```
-   git clone https://github.com/username/quality-education-platform.git
+   git clone https://github.com/krishnateja-81/Quality-Education
    ```
 
 2. Install the dependencies:
